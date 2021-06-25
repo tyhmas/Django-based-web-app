@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<h3>
+	<meta charset="utf-8">
+	<title>CertiK Analysis Result Demo</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script src="https://d3js.org/d3.v4.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.ajax({
+				type:"GET",
+				url: 'sentimental_analysis',
+				dataType: "json",
+					success: function(data){
+						console.log('sa success')
+					},
+					error: function(data){
+						console.log('error!')
+					}
+			});
+			$.ajax({
+				type:"GET",
+				url: 'word_cloud',
+				dataType: "json",
+					success: function(data){
+						console.log('wc success')
+					},
+					error: function(data){
+						console.log('error!')
+					}
+			});
+		})
+	</script> 
+	<style type="text/css">
+		body{
+			width: available;
+			height: available;
+		}
+		.panel{
+			width: available;
+			height: available;
+  		}
+		.sentiment{
+			width: 25%;
+    		min-width: 350px;
+    		height: available;
+    		min-height: 400px;
+    		float: left;
+    		background-color: rosybrown;
+    		border-collapse: collapse;
+		}
+		.wordcloud{
+			width: available;
+    		height: 138px;
+    		position: relative;
+    		margin-left: 75%;
+    		padding: 16px;
+    		background-color: yellow;
+    		border-collapse: collapse;
+		}
+	</style>
+</h3>
+<body>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<div class="panel">
+		<div class = "sentiment">
+			sentimental_analysis
+		</div>
+		<div class= "wordcloud">
+			word_cloud
+		</div>
+	</div>
+</body>
